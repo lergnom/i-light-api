@@ -1,8 +1,8 @@
 {
-	"name": "top-api",
+	"name": "i-light-api",
 	"version": "0.0.1",
 	"description": "",
-	"author": "Anton Larichev",
+	"author": "Anton Asmolovskiy",
 	"private": true,
 	"license": "UNLICENSED",
 	"scripts": {
