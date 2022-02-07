@@ -5,9 +5,9 @@ import { LightService } from './light.service';
 export class LightController {
   constructor(private readonly lightService: LightService) {
   }
-  @Post('light')
+  @Post('status')
   @HttpCode(200)
-  async lightOn(){
-	return null;
+  async lightStatus(){
+	return this.lightService.getStatus();
   }
 }
