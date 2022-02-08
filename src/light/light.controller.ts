@@ -1,4 +1,4 @@
-import { Controller, HttpCode, Post } from '@nestjs/common';
+import { Controller, HttpCode, Logger, Post } from '@nestjs/common';
 import { LightService } from './light.service';
 
 @Controller('light')
@@ -8,6 +8,14 @@ export class LightController {
   @Post('status')
   @HttpCode(200)
   async lightStatus(){
-	return this.lightService.getStatus();
+  this.lightService.getStatus();
+  return 'okk';
+  }
+
+  @Post('lighton')
+  @HttpCode(200)
+  async lightClickOn(){
+	return this.lightService.lightOn();
   }
 }
+
