@@ -7,15 +7,19 @@ export class LightController {
   }
   @Post('status')
   @HttpCode(200)
-  async lightStatus(){
-  this.lightService.getStatus();
-  return 'okk';
+  async lightStatus(){this.lightService.getStatus();
+  return 'status';
   }
 
-  @Post('lighton')
+  @Post('on')
   @HttpCode(200)
   async lightClickOn(){
 	return this.lightService.lightOn();
+  }
+  @Post('off')
+  @HttpCode(200)
+  async lightClickOff(){
+	return this.lightService.lightOff();
   }
 }
 
