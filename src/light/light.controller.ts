@@ -7,8 +7,10 @@ export class LightController {
   }
   @Post('status')
   @HttpCode(200)
-  async lightStatus(){this.lightService.getStatus();
-  return 'status';
+  async lightStatus(){
+const res = await this.lightService.getStatus();
+Logger.log(typeof res );
+return  this.lightService.getStatusNow();
   }
 
   @Post('on')

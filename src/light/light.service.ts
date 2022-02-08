@@ -5,19 +5,46 @@ import PromiseSocket from 'promise-socket';
 @Injectable()
 export class LightService {
   private client = new PromiseSocket();
+	public status: string;
 
-  async getStatus() {
-	 await this.client.connect(IPConfig.port, IPConfig.host).then(res => {
+
+
+  // async getStatus() {
+	// 	const st = {
+	// 		s:'1'
+	// 	};
+	// 	await this.client.connect(IPConfig.port, IPConfig.host).then(res => {
+	// 	this.client.socket.write(Light.status, () => {
+	// 	});
+ 	// this.client.socket.on('data', function(data) {
+	// 	Logger.log('response:' + data.toString());
+	// 	st.s = data.toString();
+	// 	});
+	// });
+	// setTimeout(()=>{
+	// 	return st.s;
+	// },1000);
+	//
+  // }
+
+	getState(st:string){
+	 this.status = st;
+	 return this.status;
+ }
+ getStatusNow(){
+		return this.status;
+ }
+
+	async getStatus() {
+		this.client.connect(IPConfig.port, IPConfig.host).then(() => {
 		this.client.socket.write(Light.status, () => {
 		});
- this.client.socket.on('data', function(data) {
-		Logger.log('response:' + data.toString());
-		return data.toString();
+	this.client.socket.on('data', (data) => {
+		this.getState(data.toString());
 		});
-		 this.client.socket.end();
-
 	});
-  }
+	}
+	
 
   async lightOn() {
 		Logger.log('send command on');
@@ -25,7 +52,6 @@ export class LightService {
 			this.client.socket.write(Light.on, () => {
 			});
 			this.client.socket.on('data', function(data) {
-				Logger.log('response:' + data.toString());
 			});
 			this.client.socket.end();
 		});
@@ -35,10 +61,8 @@ export class LightService {
 		Logger.log('send command off');
 		await this.client.connect(IPConfig.port, IPConfig.host).then(res => {
 			this.client.socket.write(Light.off, () => {
-
 			});
 			this.client.socket.on('data', function(data) {
-				Logger.log('response:' + data.toString());
 			});
 			this.client.socket.end();
 		});
