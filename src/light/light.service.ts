@@ -7,24 +7,6 @@ export class LightService {
   private client = new PromiseSocket();
 	private status: string;
 
-  // async getStatus() {
-	// 	const st = {
-	// 		s:'1'
-	// 	};
-	// 	await this.client.connect(IPConfig.port, IPConfig.host).then(res => {
-	// 	this.client.socket.write(Light.status, () => {
-	// 	});
- 	// this.client.socket.on('data', function(data) {
-	// 	Logger.log('response:' + data.toString());
-	// 	st.s = data.toString();
-	// 	});
-	// });
-	// setTimeout(()=>{
-	// 	return st.s;
-	// },1000);
-	//
-  // }
-
 	getState(st:string){
 	 this.status = st;
 	 return this.status;
