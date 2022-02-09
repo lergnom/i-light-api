@@ -14,7 +14,6 @@ export class LightService {
  getStatusNow(){
 	 Logger.log('check status');
 		return this.status;
-
  }
 
 	async getStatus() {
@@ -29,7 +28,6 @@ export class LightService {
 		Logger.log('reason ' + reason);
 		});
 	}
-	
 
   async lightOn() {
 		Logger.log('send command on');
