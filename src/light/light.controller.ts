@@ -8,20 +8,22 @@ export class LightController {
   @Post('status')
   @HttpCode(200)
   async lightStatus(){
-const res = await this.lightService.getStatus();
-Logger.log(typeof res );
-return  this.lightService.getStatusNow();
+  await this.lightService.getStatus();
+  return  this.lightService.getStatusNow();
   }
 
   @Post('on')
   @HttpCode(200)
   async lightClickOn(){
-	return this.lightService.lightOn();
+	await this.lightService.lightOn();
+	return 'on'; 
   }
+
   @Post('off')
   @HttpCode(200)
   async lightClickOff(){
-	return this.lightService.lightOff();
+  await this.lightService.lightOff();
+  return 'off';
   }
 }
 
