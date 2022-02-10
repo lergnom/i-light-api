@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { IPConfig, Light, LightType } from "./light.constants";
+import { IPConfig, Light } from './light.constants';
 import PromiseSocket from 'promise-socket';
 
 @Injectable()
