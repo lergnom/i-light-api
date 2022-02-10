@@ -16,14 +16,12 @@ export class LightController {
   @HttpCode(200)
   async lightClickOn(){
 	await this.lightService.lightOn();
-	return 'on'; 
   }
 
   @Post('off')
   @HttpCode(200)
   async lightClickOff(){
   await this.lightService.lightOff();
-  return 'off';
   }
 }
 

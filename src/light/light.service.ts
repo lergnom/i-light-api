@@ -8,7 +8,7 @@ export class LightService {
 	private status: string;
 
 	getState(st:string){
-	 this.status = st;
+		st === '10000000' ? this.status = 'on' : this.status ='off';
 	 return this.status;
  }
  getStatusNow(){
