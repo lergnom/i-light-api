@@ -1,6 +1,6 @@
 version: "3"
 services:
-    api:
+    i-light-api:
         image: demo4
         container_name: my-name
         ports:
@@ -12,11 +12,3 @@ services:
 networks:
     myTestNetwork:
         driver: bridge
-
-Если сеть есть и нужно подключиться к существующей сети:
-networks:
-    default:
-        external: true
-        name: myNetwork
-volumes:
-    data:

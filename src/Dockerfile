@@ -1,7 +1,7 @@
 FROM node:14-alpine as build
 WORKDIR /opt/app
 ADD *.json ./
-RUN npm install
+RUN yarn add
 ADD . .
-RUN npm run build i-light-api
+RUN yarn run build i-light-api
 
