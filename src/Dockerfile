@@ -1,7 +1,16 @@
-FROM node:14-alpine as build
+FROM node:16-alpine as build
 WORKDIR /opt/app
 ADD *.json ./
-RUN yarn add
+RUN npm install
 ADD . .
-RUN yarn run build i-light-api
+RUN npm run build i-light-api
+
+FROM node:16-alpine
+WORKDIR /opt/app
+ADD package.json ./
+RUN npm install --only=prod
+COPY --from=build /opt/app/dist/ ./dist
+CMD ["node", "./dist/main.js"]
+
+
 
