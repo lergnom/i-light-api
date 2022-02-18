@@ -7,8 +7,8 @@
 1. Change ip address. For example download this [link](./img/SR-201.zip)
 2. Create in folder src/light new file: light.constants.ts:
 > export const IPConfig = {
-host: 'host your node',
-port: 3000 (example)
+host: '127.0.0.1',
+port: 3000 
 };
 >
 >export type LightType = {
@@ -23,3 +23,9 @@ on: '11',
 off: '21'
 };
 3. Git clone and docker-compose up -d
+4. After you may manage this relay from api POST:
+> http://127.0.0.1:3000/status
+> 
+> http://127.0.0.1:3000/light/on
+> 
+> http://127.0.0.1:3000/light/off
