@@ -1,0 +1,11 @@
+version: "3"
+services:
+  i-light-api:
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+    restart: always
+    container_name: i-light-api
+    ports:
+      - 3002:3000
+
