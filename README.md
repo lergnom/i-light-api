@@ -4,4 +4,4 @@
 ![Relay module](./img/lANRelayBoardSwitch.jpg)
 ***
 **Description:**
-1. Change ip address. For example download this link.
+1. Change ip address. For example download this [link](./img/SR-201.zip)
