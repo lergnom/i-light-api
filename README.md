@@ -5,3 +5,21 @@
 ***
 **Description:**
 1. Change ip address. For example download this [link](./img/SR-201.zip)
+2. Create in folder src/light new file: light.constants.ts:
+> export const IPConfig = {
+host: 'host your node',
+port: 3000 (example)
+};
+>
+>export type LightType = {
+status: string,
+on: string,
+off: string,
+};
+>
+>export const Light: LightType = {
+status: '00',
+on: '11',
+off: '21'
+};
+3. Git clone and docker-compose up -d
